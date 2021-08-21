@@ -7,6 +7,14 @@ public class Produto {
 	private float precoUnitario;
 	private int unidade;
 	private int quantidade;
+
+	public Produto(String nome,float precoUnitario,int unidade,int quantidade) {
+		this.setNome(nome);
+		this.setPrecoUnitario(precoUnitario);
+		this.setQuantidade(quantidade);
+		this.setUnidade(unidade);	
+	
+	}
 	
 	public String getNome() {
 		return nome;

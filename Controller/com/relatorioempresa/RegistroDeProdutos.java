@@ -2,31 +2,23 @@ package com.relatorioempresa;
 
 import java.util.ArrayList;
 
-public class RegistroDeProdutos {
+public class RegistroDeProdutos extends RegistroDeEstoque {
+
 	protected  static  ArrayList<Produto> produtos = new ArrayList<Produto>();
-
-
-	public ArrayList<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(ArrayList<Produto> produtos) {
-		this.produtos = produtos;
+	
+	public RegistroDeProdutos() {
+		super();
 	}
 
 	public void create(String nome,float unitario,int unidade,int estoque) {
-		Produto prod = new Produto();
-		prod.setNome(nome);
-		prod.setPrecoUnitario(unitario);
-		prod.setUnidade(unidade);
-		prod.setQuantidade(estoque);
+		Produto prod = new Produto(nome,unitario,unidade,estoque);
 		produtos.add(prod);
 
 	}
 	
 	public Produto findOne(String nome) {
 		for(Produto i: produtos) {
-			if(i.getNome().equals(nome)) {
+			if(i.getNome().equals(nome.toLowerCase())) {
 				return i;
 			}
 		}
@@ -36,7 +28,7 @@ public class RegistroDeProdutos {
 		return produtos;
 	}
 	public boolean update(String nome,float unitario,int unidade,int estoque)  {
-		Produto procurado = findOne(nome);
+		Produto procurado = findOne(nome.toLowerCase());
 		if(procurado != null) {
 
 			procurado.setPrecoUnitario(unitario);
@@ -48,12 +40,19 @@ public class RegistroDeProdutos {
 		return false;
 	}
 	public boolean delete(String nome)  {
-		Produto procurado = findOne(nome);
+		Produto procurado = findOne(nome.toLowerCase());
 		if(procurado != null) {			 
 			produtos.remove(produtos.indexOf(procurado));
 			return true;
 			
 		}
 		return false;
+	}
+	public ArrayList<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(ArrayList<Produto> produtos) {
+		this.produtos = produtos;
 	}
 }

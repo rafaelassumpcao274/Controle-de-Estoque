@@ -4,7 +4,12 @@ public class Estoque {
 	private int  operacao,unidade;
 	private String idProd ;
 	
-
+	public Estoque(String idProd,int operacao,int unidade) {
+		this.setIdProd(idProd);
+		this.setOperacao(operacao);
+		this.setUnidade(unidade);
+		
+	}
 	public int getOperacao() {
 		return operacao;
 	}

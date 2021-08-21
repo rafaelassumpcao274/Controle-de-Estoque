@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Relatorio {
 	
+	public Relatorio() {
+	}
+	
 	RegistroDeProdutos regiProd = new RegistroDeProdutos();
 	RegistroDeEstoque regiEstoq = new RegistroDeEstoque();
 	RegistroDePrecos regiPreco = new RegistroDePrecos();
@@ -13,10 +16,11 @@ public class Relatorio {
 	
 	
 	
+
 	public void pricipal(){	
 		int resposta;
 		if(regiProd.findOne("Sabao") == null) {
-			regiProd.create("Sabao", 10.5F, 5, 10);
+			regiProd.create("Sabao", 300.0F, 5, 10);
 			regiEstoq.create("Sabao", 0, 10);
 			regiProd.create("Teclado", 20.0F, 1, 50);
 			regiEstoq.create("Teclado", 0, 50);
@@ -33,6 +37,14 @@ public class Relatorio {
 			System.out.println("2 - Estoque");
 			System.out.println("0 - Retornar");
 			System.out.print("Opção :");
+			while(!scan.hasNextInt()) {
+				System.out.println("####   Relatorio ####");
+				System.out.println("####   Escolha a opcao ####");
+				System.out.println("1 - Produtos");
+				System.out.println("2 - Estoque");
+				System.out.println("0 - Retornar");
+				System.out.print("Opção :");
+			};
 			resposta = scan.nextInt();
 			
 			switch(resposta) {	
@@ -61,6 +73,15 @@ public class Relatorio {
 			System.out.println("3 - Ambos");
 			System.out.println("0 - Retornar");
 			System.out.print("Opção :");
+			while(!scan.hasNextInt()) {
+				System.out.println("####   Escolha a opcao ####");
+				System.out.println("1 - Entrada");
+				System.out.println("2 - Saida");
+				System.out.println("3 - Ambos");
+				System.out.println("0 - Retornar");
+				System.out.print("Opção :");;
+				scan.next();
+			}
 			resposta = scan.nextInt();
 			
 			switch(resposta) {	

@@ -1,9 +1,16 @@
 package com.relatorioempresa;
 
 public class Precos {
+
 	private String descricaoProduto;
 	private float novoValor;
 	private int percentual;
+	
+	public Precos(String descricaoProduto,float novoValor,int percentual) {
+		this.setDescricaoProduto(descricaoProduto);
+		this.setNovoValor(novoValor);
+		this.setPercentual(percentual);
+	}
 	
 	public String getDescricaoProduto() {
 		return descricaoProduto;
